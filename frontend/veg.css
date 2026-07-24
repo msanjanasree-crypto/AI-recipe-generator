@@ -1,0 +1,115 @@
+/* ============================================
+   VEG PAGE — Fresh Nature Theme
+   ============================================ */
+body.veg-theme {
+  --primary: #2E8B57;
+  --primary-2: #34C759;
+  --sec-1: #F1FBF0;
+  --sec-2: #E4F5D9;
+  --accent: #FFB800;
+  --bg: #F7FDF3;
+  --grad: linear-gradient(135deg, #34C759, #2E8B57);
+  --grad-soft: linear-gradient(135deg, #F1FBF0 0%, #DDF3C7 100%);
+  --glass: rgba(255,255,255,0.55);
+  --glass-border: rgba(52,199,89,0.25);
+  --card-bg: rgba(255,255,255,0.65);
+  --shadow-lg: 0 20px 60px rgba(46,139,87,0.18);
+}
+body.veg-theme::before {
+  background:
+    radial-gradient(1200px 800px at 10% 0%, rgba(52,199,89,0.18), transparent 60%),
+    radial-gradient(900px 700px at 90% 20%, rgba(255,184,0,0.12), transparent 60%),
+    radial-gradient(800px 600px at 50% 100%, rgba(46,139,87,0.15), transparent 60%),
+    linear-gradient(135deg, #F1FBF0, #F7FDF3);
+  background-size: 200% 200%;
+  animation: gradientShift 18s ease infinite;
+}
+body.veg-theme .blob-1 { background: #34C759; }
+body.veg-theme .blob-2 { background: #FFB800; }
+body.veg-theme .blob-3 { background: #2E8B57; }
+.eyebrow.leaf {
+  color: #2E8B57;
+  background: rgba(52,199,89,0.12);
+  border-color: rgba(52,199,89,0.25);
+}
+.green-text {
+  background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.nav-links a.active { color: #2E8B57; }
+.nav-links a.active::after { width: 100%; }
+/* Veg hero */
+.veg-hero {
+  max-width: 1280px; margin: 0 auto;
+  padding: 80px 28px 40px;
+  text-align: center; position: relative;
+}
+.veg-hero-inner { max-width: 780px; margin: 0 auto; }
+.hero-sub{
+  max-width:650px;
+    margin:20px auto 0;
+    font-size:1.35rem;
+    line-height:1.8;
+    color:#666;
+    text-align:center;
+}
+.leaf-decor {
+  position: absolute; right: 8%; top: 40%;
+  font-size: 6rem; opacity: .15;
+  animation: leafSway 6s ease-in-out infinite;
+}
+@keyframes leafSway {
+  0%,100% { transform: rotate(-10deg); }
+  50% { transform: rotate(10deg); }
+}
+/* Recipe grid */
+.recipe-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+.veg-card {
+  background: var(--card-bg); backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius); overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform .4s ease, box-shadow .4s ease, border-color .3s;
+  opacity: 0; transform: translateY(20px);
+  animation: cardFadeIn .6s ease forwards;
+}
+@keyframes cardFadeIn { to { opacity: 1; transform: translateY(0); } }
+.veg-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(46,139,87,0.28);
+  border-color: rgba(52,199,89,0.5);
+}
+.veg-media {
+  height: 200px; position: relative; overflow: hidden;
+  display: grid; place-items: center; font-size: 5.5rem;
+}
+.veg-media::before {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(135deg, #E4F5D9, #F1FBF0);
+  transition: transform .6s ease;
+}
+.veg-card:hover .veg-media::before { transform: scale(1.15); }
+.veg-media span { position: relative; z-index: 1; transition: transform .5s ease; filter: drop-shadow(0 8px 20px rgba(46,139,87,0.3)); }
+.veg-card:hover .veg-media span { transform: scale(1.15) rotate(-5deg); }
+.veg-body { padding: 20px 22px 22px; }
+.veg-body h4 { font-size: 1.15rem; margin-bottom: 6px; }
+.veg-meta {
+  display: flex; gap: 14px; color: var(--text-soft);
+  font-size: .85rem; margin: 10px 0 16px;
+}
+.difficulty { color: #2E8B57; font-weight: 600; }
+.btn-generate {
+  width: 100%; padding: 12px; border-radius: 12px;
+  border: none; cursor: pointer; font-family: inherit; font-weight: 700;
+  background: var(--grad); color: white;
+  box-shadow: 0 10px 25px rgba(52,199,89,0.35);
+  transition: transform .3s, box-shadow .3s, filter .3s;
+}
+.btn-generate:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(52,199,89,0.5);
+  filter: brightness(1.05);
+}
+.filter-chip.active { background: var(--grad); }

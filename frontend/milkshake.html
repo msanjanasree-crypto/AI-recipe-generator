@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Milkshake Generator</title>
+
+<link rel="stylesheet" href="milkshake.css">
+</head>
+<body>
+
+<header>
+
+<h1>🥤 AI Milkshake Generator</h1>
+
+<p>Create delicious milkshakes using your favorite ingredients.</p>
+
+</header>
+<div class="floating-drinks">
+    <span>🥤</span>
+    <span>🍓</span>
+    <span>🍌</span>
+    <span>🥭</span>
+    <span>🍫</span>
+    <span>🍓</span>
+    
+</div>
+<div class="bubble" style="left:10%;width:40px;height:40px;animation-duration:18s;"></div>
+<div class="bubble" style="left:25%;width:70px;height:70px;animation-duration:22s;"></div>
+<div class="bubble" style="left:45%;width:30px;height:30px;animation-duration:16s;"></div>
+<div class="bubble" style="left:70%;width:60px;height:60px;animation-duration:20s;"></div>
+<div class="bubble" style="left:90%;width:45px;height:45px;animation-duration:24s;"></div>
+
+<div class="container">
+
+<form id="recipeForm">
+
+    <input
+        type="text"
+        id="ingredients"
+        placeholder="Example: Banana, Milk, Chocolate">
+
+    <button type="submit" class="milk-btn">
+        🥤 Generate Milkshake
+    </button>
+
+</form>
+
+
+    <div id="result"></div>
+
+</div>
+
+<script src="milkshake.js"></script>
+
+</body>
+</html>

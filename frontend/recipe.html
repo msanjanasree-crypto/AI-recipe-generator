@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chef AI | Home Chef Buddy</title>
+<link rel="stylesheet" href="recipe.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Ambient glow -->
+<div class="glow one" aria-hidden="true"></div>
+<div class="glow two" aria-hidden="true"></div>
+
+<!-- Floating food icons -->
+<div class="food-icon food1" aria-hidden="true">🍕</div>
+<div class="food-icon food2" aria-hidden="true">🥗</div>
+<div class="food-icon food3" aria-hidden="true">🍜</div>
+<div class="food-icon food4" aria-hidden="true">🍩</div>
+<div class="food-icon food5" aria-hidden="true">🥑</div>
+<div class="food-icon food6" aria-hidden="true">🍓</div>
+
+<div class="container">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div>
+      <div class="logo">
+        <img src="logo.jpeg" alt="Home Chef Buddy logo">
+        <h2>Chef AI</h2>
+      </div>
+      <p class="tagline">Your Ingredients, Our Magic</p>
+
+      <nav class="menu">
+        <a href="index.html">🏠 Home</a>
+        <a href="veg.html">🥬 Veg Recipes</a>
+        <a href="nonveg.html">🍗 Non-Veg Recipes</a>
+        <a href="milkshake.html">🥤 Milkshake</a>
+      </nav>
+    </div>
+
+    <button class="newChat" id="newChatBtn">✨ New Chat</button>
+  </aside>
+
+  <!-- Chat area -->
+  <main class="chat-area">
+    <div class="chat-header">
+      <h1 class="chat-title">Chef AI</h1>
+      <div class="userProfile">
+        <img src="images.jpeg" alt="Guest avatar">
+        <span>Guest Chef</span>
+      </div>
+    </div>
+
+    <div class="chat-box" id="chatBox">
+      <!-- Messages injected by JS -->
+    </div>
+
+    <div class="input-area">
+      <input type="text" id="ingredientInput" placeholder="Type another ingredient, e.g. Chicken, Paneer, Rice...">
+      <button class="send-btn" id="sendBtn" aria-label="Send">➤</button>
+    </div>
+  </main>
+
+</div>
+
+<button class="scroll-top" id="scrollTop" aria-label="Back to top">↑</button>
+
+<script src="recipe.js"></script>
+</body>
+</html>

@@ -1,0 +1,268 @@
+/* =========================
+   Milkshake Theme
+========================= */
+
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(-45deg,#ff9ecb,#ffd6e8,#9be7ff,#c5b3ff);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+    overflow-x: hidden;
+}
+
+@keyframes gradientMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* Floating Emojis */
+
+.floating-drinks span{
+    position:fixed;
+    font-size:40px;
+    animation:float 18s linear infinite;
+    opacity:.6;
+}
+
+.floating-drinks span:nth-child(1){left:5%;animation-delay:0s;}
+.floating-drinks span:nth-child(2){left:18%;animation-delay:3s;}
+.floating-drinks span:nth-child(3){left:35%;animation-delay:6s;}
+.floating-drinks span:nth-child(4){left:55%;animation-delay:2s;}
+.floating-drinks span:nth-child(5){left:75%;animation-delay:5s;}
+.floating-drinks span:nth-child(6){left:90%;animation-delay:8s;}
+
+@keyframes float{
+
+0%{
+transform:translateY(100vh) rotate(0deg);
+}
+
+100%{
+transform:translateY(-120px) rotate(360deg);
+}
+
+}
+
+/* Hero */
+
+.milk-hero{
+
+text-align:center;
+padding:90px 20px;
+
+}
+
+.milk-hero h1{
+
+font-size:55px;
+color:white;
+text-shadow:0 5px 15px rgba(0,0,0,.2);
+
+}
+
+.milk-hero p{
+
+font-size:20px;
+color:white;
+
+}
+
+/* Search Box */
+
+.search-box{
+
+display:flex;
+justify-content:center;
+gap:15px;
+margin:40px auto;
+max-width:800px;
+background:rgba(255,255,255,.25);
+backdrop-filter:blur(15px);
+padding:15px;
+border-radius:60px;
+box-shadow:0 15px 35px rgba(0,0,0,.15);
+
+}
+
+.search-box input{
+
+flex:1;
+border:none;
+background:transparent;
+font-size:18px;
+outline:none;
+
+}
+
+.search-box button{
+
+border:none;
+padding:15px 35px;
+border-radius:40px;
+background:linear-gradient(45deg,#ff4fa8,#7c4dff);
+color:white;
+font-size:17px;
+cursor:pointer;
+transition:.4s;
+
+}
+
+.search-box button:hover{
+
+transform:translateY(-5px) scale(1.05);
+box-shadow:0 10px 25px rgba(255,0,150,.4);
+
+}
+
+/* Glass Cards */
+
+.card{
+
+background:rgba(255,255,255,.25);
+backdrop-filter:blur(15px);
+border-radius:25px;
+padding:25px;
+box-shadow:0 20px 35px rgba(0,0,0,.15);
+transition:.4s;
+
+}
+
+.card:hover{
+
+transform:translateY(-10px);
+
+}
+
+/* Navbar */
+
+.navbar{
+
+background:rgba(255,255,255,.2);
+backdrop-filter:blur(20px);
+
+}
+
+/* Bubble Animation */
+
+.bubble{
+
+position:fixed;
+bottom:-100px;
+background:rgba(255,255,255,.3);
+border-radius:50%;
+animation:bubble 15s linear infinite;
+
+}
+
+@keyframes bubble{
+
+0%{
+transform:translateY(0) scale(0);
+}
+
+100%{
+transform:translateY(-120vh) scale(1.4);
+}
+
+}
+.container{
+    width:90%;
+    max-width:700px;
+    margin:60px auto;
+    text-align:center;
+}
+
+#ingredients{
+
+    width:100%;
+    padding:18px 25px;
+
+    border:none;
+    border-radius:50px;
+
+    font-size:18px;
+
+    outline:none;
+
+    background:rgba(255,255,255,.25);
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+    margin-bottom:25px;
+
+}
+
+#ingredients::placeholder{
+
+    color:#555;
+
+}
+
+.milk-btn{
+
+    padding:16px 40px;
+
+    border:none;
+
+    border-radius:50px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    color:white;
+
+    cursor:pointer;
+
+    background:linear-gradient(
+        135deg,
+        #ff4fa8,
+        #ff9a44,
+        #ffd93d,
+        #7c4dff,
+        #00c6ff
+    );
+
+    background-size:300% 300%;
+
+    animation:buttonGradient 5s ease infinite;
+
+    transition:.3s;
+
+    box-shadow:0 12px 30px rgba(255,105,180,.4);
+
+}
+
+.milk-btn:hover{
+
+    transform:translateY(-5px) scale(1.05);
+
+    box-shadow:0 20px 40px rgba(255,105,180,.6);
+
+}
+
+@keyframes buttonGradient{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+
+}
+
+#result{
+
+    margin-top:40px;
+
+}

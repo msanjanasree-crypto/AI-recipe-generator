@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Recipe Generator — Turn Ingredients Into Delicious Recipes</title>
+  <meta name="description" content="Enter the ingredients you already have and let AI create amazing recipes instantly." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/130065f158.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <!-- Cursor Glow -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+  <!-- Loading Spinner -->
+  <div class="page-loader" id="pageLoader">
+    <div class="loader-ring"></div>
+  </div>
+  <!-- Animated Background Blobs -->
+  <div class="bg-blobs">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+  </div>
+  <!-- Floating Food Illustrations -->
+  <div class="floating-food" aria-hidden="true">
+    <span style="--x:5%;--y:10%;--d:22s;--r:12s">🥑</span>
+    <span style="--x:88%;--y:15%;--d:26s;--r:14s">🍅</span>
+    <span style="--x:12%;--y:70%;--d:30s;--r:16s">🥕</span>
+    <span style="--x:82%;--y:78%;--d:24s;--r:11s">🌶️</span>
+    <span style="--x:45%;--y:8%;--d:28s;--r:15s">🍕</span>
+    <span style="--x:60%;--y:88%;--d:32s;--r:18s">🍔</span>
+    <span style="--x:25%;--y:40%;--d:34s;--r:20s">🍜</span>
+    <span style="--x:70%;--y:45%;--d:29s;--r:13s">🥗</span>
+    <span style="--x:8%;--y:88%;--d:27s;--r:17s">🍩</span>
+    <span style="--x:92%;--y:55%;--d:33s;--r:19s">🍪</span>
+    <span style="--x:38%;--y:60%;--d:25s;--r:12s">🍓</span>
+    <span style="--x:55%;--y:25%;--d:31s;--r:14s">🍋</span>
+    <span style="--x:18%;--y:20%;--d:23s;--r:16s">🧄</span>
+    <span style="--x:78%;--y:30%;--d:26s;--r:15s">🌽</span>
+    <span style="--x:33%;--y:80%;--d:28s;--r:13s">🥦</span>
+  </div>
+  <!-- Navbar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">
+        <img src="logo.jpeg" class="logo-icon" >
+         <span>Home <span class="highlight">Chef Buddy</span></span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#recipes">Recipes</a>
+        <a href="veg.html">Veg</a>
+        <a href="nonveg.html">Non-Veg</a>
+        <a href="meal.html">Weekly Planner</a>
+        <a href="milkshake.html">Milkshakes</a>
+        
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+   
+        <a class="btn btn-primary btn-login" href="login.html" style="text-decoration: none;">Login</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-grid">
+      <div class="hero-copy reveal">
+       <span class="eyebrow">
+🤖 AI Powered Smart Kitchen Assistant
+</span>
+      <h1 class="hero-title">
+Cook Smarter with
+<span class="gradient-text">Home Chef Buddy AI</span>
+</h1>
+
+        <p class="hero-sub">
+Generate AI Recipes, Plan Your Weekly Meals,
+Track Nutrition and Build Smart Grocery Lists —
+all in one intelligent kitchen assistant.
+</p>
+
+        <form id="recipeForm" class="search-box glow-border" action="recipe.html" method="get">
+          <span class="search-icon">🥘</span>
+          <input type="text" id="ingredientInput" placeholder="Example: Tomato, Onion, Rice, Egg..." />
+          <button type="submit" class="btn btn-primary btn-glow" id="generateBtn"> 🍳Generate Recipe</button>
+        </form>
+<div class="hero-buttons">
+
+    <a href="meal.html" class="meal-btn">
+        📅 Weekly Meal Planner
+    </a>
+
+    <a href="milkshake.html" class="meal-btn">
+        🥤 AI Milkshake Generator
+    </a>
+
+</div>
+        <div class="hero-stats">
+          <div><strong>10K+</strong><span>Recipes</span></div>
+          <div><strong>50+</strong><span>Cuisines</span></div>
+          <div><strong>4.9★</strong><span>Rating</span></div>
+        </div>
+      </div>
+      <div class="hero-visual reveal">
+        <div class="chef-float">
+          <div class="chef-emoji">👨‍🍳</div>
+          <div class="chef-ring"></div>
+          <div class="chef-orbit orbit-1">🍅</div>
+          <div class="chef-orbit orbit-2">🥕</div>
+          <div class="chef-orbit orbit-3">🌶️</div>
+          <div class="chef-orbit orbit-4">🥑</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Features -->
+  <section class="section features" id="features">
+    <div class="section-head reveal">
+      <span class="eyebrow">Why AI Recipe</span>
+      <h2>Built for modern kitchens</h2>
+      <p>Everything you need to cook smarter, faster, and healthier.</p>
+    </div>
+    <div class="feature-grid">
+      <article class="glass-card reveal">
+        <div class="feature-icon">🤖</div>
+        <h3>AI Powered Recipes</h3>
+        <p>Personalized recipes generated in seconds using state-of-the-art AI.</p>
+      </article>
+      <article class="glass-card reveal">
+        <div class="feature-icon">🧠</div>
+        <h3>Smart Ingredient Detection</h3>
+        <p>Type what you have — the AI figures out what's possible.</p>
+      </article>
+      <article class="glass-card reveal">
+        <div class="feature-icon">🥗</div>
+        <h3>Healthy Suggestions</h3>
+        <p>Calorie-aware picks and dietary swaps for a balanced lifestyle.</p>
+      </article>
+      <article class="glass-card reveal">
+        <div class="feature-icon">⚡</div>
+        <h3>Instant Cooking Instructions</h3>
+        <p>Step-by-step guidance with timers, tips, and pro techniques.</p>
+      </article>
+    </div>
+  </section>
+  <!-- Filter Section -->
+  <section class="section filter-section" id="recipes">
+    <div class="filter-glass reveal">
+      <div class="section-head">
+        <span class="eyebrow">Choose Your Path</span>
+        <h2>Find Your Perfect Recipe</h2>
+      </div>
+      <div class="filter-row">
+        <a href="veg.html" class="filter-pill pill-veg">
+          <span class="pill-emoji">🥬</span>
+          <span>Veg</span>
+        </a>
+        <a href="nonveg.html" class="filter-pill pill-nonveg">
+          <span class="pill-emoji">🍗</span>
+          <span>Non-Veg</span>
+        </a>
+      </div>
+      <div class="filter-divider"></div>
+      <div class="filter-row wrap">
+        <button class="filter-chip">🍛 Main Course</button>
+        <button class="filter-chip">🥗 Starter</button>
+        <button class="filter-chip">🍰 Dessert</button>
+        <button class="filter-chip">☕ Beverages</button>
+      </div>
+    </div>
+  </section>
+  <!-- Popular Recipes -->
+  <section class="section popular" id="popular">
+    <div class="section-head reveal">
+      <span class="eyebrow">Trending Now</span>
+      <h2>Popular recipes this week</h2>
+    </div>
+    <div class="scroll-row" id="popularRow">
+      <!-- Filled by JS -->
+    </div>
+  </section>
+  <!-- How It Works -->
+  <section class="section how" id="about">
+    <div class="section-head reveal">
+      <span class="eyebrow">How It Works</span>
+      <h2>Three steps to your next meal</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num">1</div>
+        <h3>Enter Ingredients</h3>
+        <p>Type what's in your fridge or pantry.</p>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step reveal">
+        <div class="step-num">2</div>
+        <h3>AI Creates Recipe</h3>
+        <p>Smart matching produces a custom recipe.</p>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step reveal">
+        <div class="step-num">3</div>
+        <h3>Start Cooking</h3>
+        <p>Follow step-by-step guidance and enjoy.</p>
+      </div>
+    </div>
+  </section>
+  <!-- Testimonials -->
+  <section class="section testimonials">
+    <div class="section-head reveal">
+      <span class="eyebrow">Loved by Home Chefs</span>
+      <h2>What people are saying</h2>
+    </div>
+    <div class="testi-track" id="testiTrack">
+      <!-- Filled by JS -->
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer class="footer" id="contact">
+    <div class="footer-grid">
+      <div>
+        <div class="logo">
+          <span class="logo-icon">🍽</span>
+          <span class="logo-text">AI Recipe <em>Generator</em></span>
+        </div>
+        <p class="mt">Cooking, reinvented by AI. Your kitchen's new co-pilot.</p>
+      </div>
+      <div>
+        <h5>Quick Links</h5>
+        <a href="#home">Home</a>
+        <a href="veg.html">Veg</a>
+        <a href="nonveg.html">Non-Veg</a>
+        <a href="#categories">Categories</a>
+      </div>
+      <div>
+        <h5>Newsletter</h5>
+        <form class="newsletter" onsubmit="event.preventDefault();this.reset();alert('Subscribed!');">
+          <input type="email" placeholder="you@email.com" required />
+          <button class="btn btn-primary">Join</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 AI Recipe Generator. Crafted with 🧡</div>
+  </footer>
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+  <script src="script.js"></script>
+</body>
+</html>

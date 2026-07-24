@@ -1,0 +1,14 @@
+from passlib.context import CryptContext
+
+# Use bcrypt hashing
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+
+
+# Convert password into a secure hash
+def hash_password(password: str):
+    return pwd_context.hash(password)
+
+
+# Check login password with stored hash
+def verify_password(plain_password: str, hashed_password: str):
+    return pwd_context.verify(plain_password, hashed_password)
