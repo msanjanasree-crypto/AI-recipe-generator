@@ -17,23 +17,35 @@ client = Groq(
     api_key=os.getenv("GROQ_API_KEY")
 )
 def get_food_image(recipe_name):
-
     url = "https://api.pexels.com/v1/search"
 
     headers = {
         "Authorization": os.getenv("PEXELS_API_KEY")
     }
 
+    recipe = recipe_name.lower()
+
+    if "juice" in recipe:
+        query = recipe_name + " fresh juice"
+    elif "milkshake" in recipe:
+        query = recipe_name + " milkshake"
+    elif "smoothie" in recipe:
+        query = recipe_name + " smoothie"
+    elif "dessert" in recipe:
+        query = recipe_name + " dessert"
+    elif "cake" in recipe:
+        query = recipe_name + " cake"
+    elif "ice cream" in recipe:
+        query = recipe_name + " ice cream"
+    else:
+        query = recipe_name + " recipe"
+
     params = {
-        "query": recipe_name + " food",
-        "per_page": 1
+        "query": query,
+        "per_page": 5
     }
 
-    response = requests.get(
-        url,
-        headers=headers,
-        params=params
-    )
+    response = requests.get(url, headers=headers, params=params)
 
     data = response.json()
 
