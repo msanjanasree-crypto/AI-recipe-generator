@@ -10,3 +10,4 @@ python-multipart
 openai
 email-validator
 requests
+groq
