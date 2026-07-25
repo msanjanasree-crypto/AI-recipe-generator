@@ -3,7 +3,7 @@
    recipe.js
 ============================================ */
 
-const API_URL = "https://ai-recipe-generator-qqqm.onrender.com/docs";
+const API_URL = "https://your-render-service.onrender.com/recipe/generate";
 
 const chatBox = document.getElementById("chatBox");
 
