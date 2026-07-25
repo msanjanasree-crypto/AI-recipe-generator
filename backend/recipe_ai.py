@@ -16,36 +16,24 @@ print("API KEY:", os.getenv("GROQ_API_KEY"))
 client = Groq(
     api_key=os.getenv("GROQ_API_KEY")
 )
-def get_food_image(recipe_name):
+def get_food_image(search_query):
+
     url = "https://api.pexels.com/v1/search"
 
     headers = {
         "Authorization": os.getenv("PEXELS_API_KEY")
     }
 
-    recipe = recipe_name.lower()
-
-    if "juice" in recipe:
-        query = recipe_name + " fresh juice"
-    elif "milkshake" in recipe:
-        query = recipe_name + " milkshake"
-    elif "smoothie" in recipe:
-        query = recipe_name + " smoothie"
-    elif "dessert" in recipe:
-        query = recipe_name + " dessert"
-    elif "cake" in recipe:
-        query = recipe_name + " cake"
-    elif "ice cream" in recipe:
-        query = recipe_name + " ice cream"
-    else:
-        query = recipe_name + " recipe"
-
     params = {
-        "query": query,
-        "per_page": 5
+        "query": search_query,
+        "per_page": 1
     }
 
-    response = requests.get(url, headers=headers, params=params)
+    response = requests.get(
+        url,
+        headers=headers,
+        params=params
+    )
 
     data = response.json()
 
@@ -80,11 +68,22 @@ Rules:
 Use these ingredients:
 
 {ingredients}
+Also generate an "image_prompt" field.
+
+The image_prompt should be a realistic food photography search phrase.
+
+Example:
+
+"Fresh homemade tomato rice bowl in a white ceramic bowl with basil garnish, restaurant style food photography"
+
+Do not use generic words like "food".
+Make the prompt describe exactly how the dish looks.
 
 Return ONLY valid JSON in the following format.
 
 {{
     "recipe_name": "",
+     "image_prompt": "",
     "image": "",
     "description": "",
     "cooking_time": "",
@@ -132,7 +131,7 @@ Return ONLY JSON.
 
     data = json.loads(text)
     # Generate food image URL
-    data["image"] = get_food_image(data["recipe_name"])
+    data["image"] = get_food_image(data["image_prompt"])
 
     # Convert ingredient objects into strings if needed
     ingredient_list = []
