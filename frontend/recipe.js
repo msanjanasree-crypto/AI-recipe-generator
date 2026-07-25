@@ -3,7 +3,7 @@
    recipe.js
 ============================================ */
 
-const API_URL = "https://ai-recipe-generator-qqqm.onrender.com/docs";
+const API_URL = "https://ai-recipe-generator-qqqm.onrender.com/recipe/generate";
 
 const chatBox = document.getElementById("chatBox");
 
@@ -331,31 +331,27 @@ async function runConversation(ingredientText) {
 
     try {
 
-        const response = await fetch(API_URL, {
+       console.log("API URL:", API_URL);
 
-            method: "POST",
+const response = await fetch(API_URL, {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        ingredients: ingredientText,
+        category: category,
+        meal_type: "Lunch"
+    })
+});
 
-            headers: {
-                "Content-Type": "application/json"
-            },
+console.log("Status:", response.status);
 
-            body: JSON.stringify({
-
-    ingredients: ingredientText,
-
-    category: category,
-
-    meal_type: "Lunch"
-
-})
-
-        });
-
-        if (!response.ok) {
-
-            throw new Error("Backend Error");
-
-        }
+if (!response.ok) {
+    const text = await response.text();
+    console.log(text);
+    throw new Error("Backend Error");
+}
 
         const recipe = await response.json();
 
